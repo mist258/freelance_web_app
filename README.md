@@ -1,0 +1,1 @@
+python mamage.py runserver
