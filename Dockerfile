@@ -5,6 +5,9 @@ LABEL maintainer="Backend Dev"
 
 ENV PYTHONUNBUFFERED=1
 
+#WORKDIR /code
+#COPY . /code/
+
 RUN apk update
 
 # залежності до з'єднання з бд
@@ -17,10 +20,10 @@ RUN pip install psycopg2
 
 RUN apk add --no-cache jpeg-dev zlib-dev libjpeg
 
-RUN mkdir /code
+#RUN mkdir /code
 
 RUN pip install --upgrade pip
 
-COPY requirements.txt /tmp
+COPY freelance_web_app/requirements.txt /tmp
 
 RUN cd /tmp && pip install -r requirements.txt

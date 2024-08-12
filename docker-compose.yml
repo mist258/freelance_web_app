@@ -1,7 +1,8 @@
 services:
   code:
-    build: .
+    build: freelance_web_app
     restart: always
+#    working_dir: /code
     command: >
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
@@ -17,7 +18,7 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_DB: freelance_web_app
+      POSTGRES_DB: django_project
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
