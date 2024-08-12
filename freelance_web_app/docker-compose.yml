@@ -1,0 +1,32 @@
+services:
+  code:
+    build: .
+    restart: always
+    command: >
+      sh -c "python manage.py migrate && pyhon manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+#    networks:
+#      - my_network
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: freelance_web_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+#    networks:
+#      - my_network
+
+#networks:
+#  my_network:
+#    driver: bridge
+
+
