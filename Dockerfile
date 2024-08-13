@@ -5,25 +5,30 @@ LABEL maintainer="Backend Dev"
 
 ENV PYTHONUNBUFFERED=1
 
-#WORKDIR /code
-#COPY . /code/
 
-RUN apk update
+# Встановлення необхідних системних залежностей
+RUN apk update && apk add --no-cache \
+    gcc \
+    musl-dev \
+    postgresql-dev \
+    postgresql-client \
+    jpeg-dev \
+    zlib-dev \
+    libjpeg
 
-# залежності до з'єднання з бд
-RUN apk add --no-cache gcc musl-dev postgresql-dev postgresql-client
+# Оновлення pip та встановлення postgres адаптера для python
+RUN pip install --upgrade pip && pip install psycopg2
 
-# postgres адаптер для python
-RUN pip install psycopg2
+# Копіювання проекту
+COPY freelance_web_app/ /code/freelance_web_app/
 
-# for pillow
+# Встановлення залежностей з requirements.txt
+RUN pip install -r /code/freelance_web_app/requirements.txt
 
-RUN apk add --no-cache jpeg-dev zlib-dev libjpeg
+# Встановлення робочого каталогу для виконання команд
+WORKDIR /code/freelance_web_app
 
-#RUN mkdir /code
+# Запуск сервера
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-RUN pip install --upgrade pip
 
-COPY freelance_web_app/requirements.txt /tmp
-
-RUN cd /tmp && pip install -r requirements.txt

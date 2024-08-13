@@ -2,7 +2,7 @@ services:
   code:
     build: freelance_web_app
     restart: always
-#    working_dir: /code
+    working_dir: /code
     command: >
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
@@ -11,8 +11,8 @@ services:
       - .:/code
     depends_on:
       - db
-#    networks:
-#      - my_network
+    networks:
+      - my_network
 
   db:
     image: postgres:13-alpine
@@ -23,11 +23,11 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5433:5432"
-#    networks:
-#      - my_network
+    networks:
+      - my_network
 
-#networks:
-#  my_network:
-#    driver: bridge
+networks:
+  my_network:
+    driver: bridge
 
 
