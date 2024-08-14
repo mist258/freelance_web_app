@@ -3,11 +3,17 @@
 import os
 import sys
 import dotenv
+import os
+from pathlib import Path
 
 
 def main():
 
-    dotenv.read_dotenv()
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
+    dotenv_path = BASE_DIR / '.env'
+    dotenv.read_dotenv(dotenv_path)
+
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'freelance_app.settings')
     try:
