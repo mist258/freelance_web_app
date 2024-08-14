@@ -1,14 +1,14 @@
 services:
-  code:
+  web:
     build: freelance_web_app
     restart: always
-    working_dir: /code
+
     command: >
       sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
-      - .:/code
+      - /code/freelance_web_app
     depends_on:
       - db
     networks:
