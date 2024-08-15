@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AgreementConfig(AppConfig):
+class FreelancerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'agreement'
+    name = 'apps.freelancer_profile'

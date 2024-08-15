@@ -10,7 +10,11 @@ python = "^3.12"
 django = "^5.1"
 django-dotenv = "^1.4.2"
 tzdata = "^2024.1"
+pillow = "^10.4.0"
 
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]

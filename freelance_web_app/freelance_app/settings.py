@@ -15,8 +15,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("POSTGRESQL_USER:", os.getenv('POSTGRESQL_USER'))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -41,15 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my app
-    'user',
-    'admin_profile',
-    'freelancer_profile',
-    'client_profile',
-    'project',
-    'proposal',
-    'agreement',
-    'chat',
-    'freelance_app',
+    'apps.admin_profile',
+    'apps.freelancer_profile',
+    'apps.client_profile',
+    'apps.project',
+    'apps.proposal',
+    'apps.agreement',
+    'apps.chat',
+    'apps.auth_user',
+    'apps.user',
 
 ]
 
@@ -68,7 +66,7 @@ ROOT_URLCONF = 'freelance_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
