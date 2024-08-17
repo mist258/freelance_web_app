@@ -25,8 +25,8 @@ urlpatterns = [
     path('', include('apps.admin_profile.urls')),
     path('', include('apps.freelancer_profile.urls')),
     path('', include('apps.client_profile.urls')),
-    path('', include('apps.auth_user.urls'))
+    path('', include('apps.auth_register_user.urls'))
 ]
 
 if settings.DEBUG:
-    urlpatterns *= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

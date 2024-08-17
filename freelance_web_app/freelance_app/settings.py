@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # apps installed during developing
     'django_countries',
+    # 'freelance_web_app.apps.auth_register_user.apps.AuthUserConfig'  # custom user
 
     # my apps
     'freelance_web_app.apps.admin_profile',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'freelance_web_app.apps.proposal',
     'freelance_web_app.apps.agreement',
     'freelance_web_app.apps.chat',
-    'freelance_web_app.apps.auth_user',
+    'freelance_web_app.apps.auth_register_user',
     'freelance_web_app.apps.user',
 
 ]
@@ -69,7 +70,7 @@ ROOT_URLCONF = 'freelance_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'apps/auth_register_user/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +139,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'media')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
