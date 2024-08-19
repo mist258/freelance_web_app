@@ -27,6 +27,8 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'f'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -105,16 +107,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth_register_user.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth_register_user.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth_register_user.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth_register_user.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -135,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'apps/auth_register_user/../auth_register_user/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'apps/auth_register_user/../../apps/auth_register_user/static')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'media')]
 
