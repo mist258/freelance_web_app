@@ -27,7 +27,7 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'f'
+AUTH_USER_MODEL = 'user.UserModel'
 
 # Application definition
 

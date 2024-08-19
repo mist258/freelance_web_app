@@ -8,6 +8,3 @@ def register(request):
 def login(request):
     return render(request, 'log_in/log_in.html')
 
-
-
-

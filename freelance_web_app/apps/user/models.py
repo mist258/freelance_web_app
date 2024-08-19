@@ -1,7 +1,8 @@
+from django.contrib.auth.models import AbstractBaseUser
 from django.db import models
 
 
-class UserAbstractModel(models.Model):
+class UserModel(AbstractBaseUser):
 
     CHOICES = [
         ('freelancer', 'Freelancer'),
@@ -21,6 +22,8 @@ class UserAbstractModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = [first_name, last_name, username, email, password1, password2, role]
 
     class Meta:
         db_table = 'auth_user'
+        ordering = ['id', ]
