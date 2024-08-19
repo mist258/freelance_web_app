@@ -21,11 +21,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin', admin.site.urls),
-    path('', include('apps.admin_profile.urls')),
-    path('', include('apps.freelancer_profile.urls')),
-    path('', include('apps.client_profile.urls')),
-    path('', include('apps.auth_register_user.urls'))
+    path('admin/', admin.site.urls),
+    path('', include('freelance_web_app.apps.auth_register_user.urls')),
 ]
 
 if settings.DEBUG:
