@@ -14,7 +14,7 @@ class UserAbstractModel(models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=50)
     profile_photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
-    location = CountryField(blank_label='Select a location')
+    location = CountryField(null=True, blank=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)

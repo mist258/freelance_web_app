@@ -13,7 +13,8 @@
               </div>
             </div>
           </div>
-          <form action="#">
+          <form method="post">
+              {% csrf_token %}
             <div class="row gy-3 gy-md-4 overflow-hidden">
               <div class="col-12">
                 <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
@@ -24,6 +25,10 @@
                 <input type="email" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
               </div>
               <div class="col-12">
+                <label for="userName" class="form-label">User Name <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" name="usertName" id="userName" placeholder="User Name" required>
+              </div>  
+              <div class="col-12">
                 <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
               </div>
@@ -31,14 +36,24 @@
                 <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                 <input type="password" class="form-control" name="password" id="password" value="" required>
               </div>
+               <div class="col-12">
+                <label for="password" class="form-label">Confirm password <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" name="confirm password" id="password" value="" required>
+              </div>  
               <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" name="iAgree" id="iAgree" required>
-                  <label class="form-check-label text-secondary" for="iAgree">
-                    I agree to the <a href="#" class="link-primary text-decoration-none">terms and conditions</a>
-                  </label>
-                </div>
               </div>
+               <h6 class="mb-2 pb-1">Choose your role: </h6>
+                  <div class="form-check form-check-inline">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="freelancer" id="freelancer" value="freelancer" />
+                        <label class="form-check-label" for="freelancer">Freelancer</label>
+                      </div>
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="client" id="client" value="client" />
+                        <label class="form-check-label" for="client">Client</label>
+                      </div>
+                  </div>
               <div class="col-12">
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
