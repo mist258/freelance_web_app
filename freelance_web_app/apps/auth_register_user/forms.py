@@ -1,16 +1,16 @@
 from django import forms
-from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model, password_validation
 
 UserModel = get_user_model()
 
 
-class RegisterUserForm(forms.ModelForm):
+class RegisterUserForm(UserCreationForm):
 
     CHOICES = [
         ('freelancer', 'Freelancer'),
         ('client', 'Client'),
     ]
-
     first_name = forms.CharField(label='First Name', widget=forms.TextInput(
                                 attrs={'class': 'form-control', 'placeholder': 'First name', 'id': 'firstname'}),
                                 max_length=50, required=True)
@@ -21,29 +21,31 @@ class RegisterUserForm(forms.ModelForm):
                                 attrs={'class': 'form-control', 'placeholder': 'Username', 'id': 'username'}),
                                 max_length=50, required=True)
     email = forms.EmailField(label='Email', widget=forms.TextInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'email', 'required': 'True', 'autocomplete': 'email'}),
-                                required=True, unique=True)
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
+                                attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'email',
+                                       'required': 'True', 'autocomplete': 'email'}),
                                 required=True)
-    confirm_password = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
+                                attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
+                                required=True, help_text=password_validation.password_validators_help_texts())
+    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
                                 required=True)
     choose_role = forms.ChoiceField(label='Role', choices=CHOICES, widget=forms.RadioSelect, required=True)
 
     class Meta:
         model = UserModel
-        fields = ('first_name', 'last_name', 'username', 'email', 'password', 'confirm_password', 'choose_role',
-                  'is_active', 'is_staff', 'is_superuser', 'updated_at', 'created_at')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'choose_role')
 
 
 class LoginUserForm(forms.ModelForm):
 
     email = forms.EmailField(label='Email', widget=forms.TextInput(
-                                attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'email', 'required': 'True', 'autocomplete': 'email'}),
-                                required=True, unique=True)
+                                attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'email',
+                                       'required': 'True', 'autocomplete': 'email'}),
+                                required=True)
     password = forms.CharField(label='Password', widget=forms.PasswordInput(
-                                attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
+                                attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True',
+                                       'id': 'password'}),
                                 required=True)
 
     class Meta:
