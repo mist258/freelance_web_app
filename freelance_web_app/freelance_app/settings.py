@@ -27,34 +27,10 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'user.UserModel'
+AUTH_USER_MODEL = 'auth_register_user.UserModel'
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-    # apps installed during developing
-    'django_countries',
-    #'freelance_web_app.apps.auth_register_user.apps.AuthUserConfig'  # custom user
-
-    # my apps
-    'freelance_web_app.apps.admin_profile',
-    'freelance_web_app.apps.freelancer_profile',
-    'freelance_web_app.apps.client_profile',
-    'freelance_web_app.apps.project',
-    'freelance_web_app.apps.proposal',
-    'freelance_web_app.apps.agreement',
-    'freelance_web_app.apps.chat',
-    'freelance_web_app.apps.auth_register_user',
-    'freelance_web_app.apps.user',
-
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +42,30 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # apps installed during developing
+    'django_countries',
+
+    # my apps
+    'freelance_web_app.apps.admin_profile',
+    'freelance_web_app.apps.freelancer_profile',
+    'freelance_web_app.apps.client_profile',
+    'freelance_web_app.apps.project',
+    'freelance_web_app.apps.proposal',
+    'freelance_web_app.apps.agreement',
+    'freelance_web_app.apps.chat',
+    'freelance_web_app.apps.auth_register_user',
+    'freelance_web_app.core',
+
+
+]
 ROOT_URLCONF = 'freelance_app.urls'
 
 TEMPLATES = [
@@ -137,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'apps/auth_register_user/../../apps/auth_register_user/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'apps/auth_register_user/../../apps/auth_register_user/../apps/static')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'media')]
 

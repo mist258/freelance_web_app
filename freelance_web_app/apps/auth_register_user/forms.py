@@ -1,5 +1,7 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+UserModel = get_user_model()
 
 
 class RegisterUserForm(forms.ModelForm):
@@ -18,8 +20,9 @@ class RegisterUserForm(forms.ModelForm):
     choose_role = forms.ChoiceField(label='Role', choices=CHOICES, widget=forms.RadioSelect, required=True)
 
     class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password', 'confirm_password', 'choose_role')
+        model = UserModel
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'confirm_password', 'choose_role',
+                  'is_active', 'is_staff', 'is_superuser', 'updated_at', 'created_at')
 
 
 class LoginUserForm(forms.ModelForm):
@@ -28,6 +31,6 @@ class LoginUserForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput(), required=True)
 
     class Meta:
-        model = User
+        model = UserModel
         fields = ('email', 'password')
 
