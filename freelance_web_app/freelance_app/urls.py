@@ -23,7 +23,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('freelance_web_app.apps.auth_register_user.urls')),
-    path('login/', include('freelance_web_app.apps.auth_register_user.urls')),
 
 ]
 

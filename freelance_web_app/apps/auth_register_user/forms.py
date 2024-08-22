@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import get_user_model, password_validation
+from django.contrib.auth import get_user_model
 
 UserModel = get_user_model()
 
@@ -26,7 +26,7 @@ class RegisterUserForm(UserCreationForm):
                                 required=True)
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
-                                required=True, help_text=password_validation.password_validators_help_texts())
+                                required=True, )
     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(
                                 attrs={'class': 'form-control', 'input_type': 'password', 'required': 'True', 'id':'password'}),
                                 required=True)
