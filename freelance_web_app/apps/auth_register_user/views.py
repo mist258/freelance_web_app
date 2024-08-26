@@ -1,4 +1,3 @@
-from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 
@@ -38,7 +37,6 @@ def register(request):
             if choose_role == 'client':
                 return redirect('success')
 
-            messages.success(request, f'Your account has been created {username}!')
             return redirect('success')
 
         else:
