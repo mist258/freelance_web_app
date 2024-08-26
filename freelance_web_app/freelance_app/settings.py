@@ -62,7 +62,9 @@ INSTALLED_APPS = [
     'freelance_web_app.apps.agreement',
     'freelance_web_app.apps.chat',
     'freelance_web_app.apps.auth_register_user.apps.AuthUserConfig',
+    #'apps.auth_register_user',
     'freelance_web_app.core',
+
 
 
 ]
@@ -105,7 +107,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
-AUTH_PWD_MODULE="django.contrib.auth.password_validation."
+AUTH_PWD_MODULE = "django.contrib.auth.password_validation."
 
 
 AUTH_PASSWORD_VALIDATORS = [
