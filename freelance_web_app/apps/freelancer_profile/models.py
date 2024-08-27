@@ -12,7 +12,7 @@ class FreelancerProfile(BaseModel):
         ('senior', 'Senior'),
     ]
 
-    level = models.CharField(max_length=20, choices=LVL_CHOICES)
+    level = models.CharField(max_length=20, choices=LVL_CHOICES,)
     skills = models.CharField(max_length=200, null=True, blank=True)
     experience = models.CharField(max_length=200, null=True, blank=True)
     portfolio_url = models.URLField(null=True, blank=True)

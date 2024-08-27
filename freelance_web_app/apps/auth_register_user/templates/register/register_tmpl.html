@@ -15,6 +15,7 @@
           </div>
           <form method="post">
               {% csrf_token %}
+              {{ form.non_field_errors }}
 {#              {{form.as_p}}#}
             <div class="row gy-3 gy-md-4 overflow-hidden">
               <div class="col-12">

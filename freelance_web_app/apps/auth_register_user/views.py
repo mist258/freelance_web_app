@@ -21,7 +21,7 @@ def register(request):
             choose_role = form.cleaned_data['choose_role']
 
             if password1 != password2:
-                form.add_error('password1', 'Passwords must match')
+                form.add_error('password1', 'Passwords must be match')
 
             else:
                 user.username = username
@@ -32,12 +32,10 @@ def register(request):
                 user.save()
 
             if choose_role == 'freelancer':
-                return redirect('success')
+                return redirect('freelancer_profile')
 
             if choose_role == 'client':
-                return redirect('success')
-
-            return redirect('success')
+                return redirect('client_profile')
 
         else:
             form.add_error('password2', 'Passwords must match')
@@ -69,11 +67,3 @@ def login_page(request):
 
 def success_page(request):
     return render(request, 'register_success/success_tmpl.html')
-
-
-
-
-
-
-
-
