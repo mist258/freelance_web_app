@@ -12,8 +12,12 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Users must have a password')
 
         normalize_email = self.normalize_email(email)  # normalize email
-        user = self.model(username=username, first_name=first_name, last_name=last_name, email=normalize_email, **extra_fields)
-        user.set_password(password)  # hash password
+        user = self.model(username=username,
+                          first_name=first_name,
+                          last_name=last_name,
+                          email=normalize_email,
+                          **extra_fields)
+        user.set_password(password)  # hash  the password
         user.save(using=self._db)
         return user
 

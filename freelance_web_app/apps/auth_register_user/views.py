@@ -29,7 +29,7 @@ def register(request):
                 user.last_name = last_name
                 user.email = email
                 user.set_password(password1)
-                user.save()
+                # user.save()
 
             if choose_role == 'freelancer':
                 return redirect('freelancer_profile')
