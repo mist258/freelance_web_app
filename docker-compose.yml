@@ -19,7 +19,7 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_DB: django_project
+      POSTGRES_DATABASE: freelance_app
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
