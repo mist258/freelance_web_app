@@ -1,1 +1,1 @@
-python mamage.py runserver
+python mamage.py runserver (django)
