@@ -1,0 +1,73 @@
+{% extends 'base/base_tmpl.html' %}
+{% block body%}
+<div class="bg-light py-3 py-md-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-5">
+                <h2 class="h3">Registration</h2>
+                <h3 class="fs-6 fw-normal text-secondary m-0">Enter your details to register</h3>
+              </div>
+            </div>
+          </div>
+          <form method="post">
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+{#              {{form.as_p}}#}
+            <div class="row gy-3 gy-md-4 overflow-hidden">
+              <div class="col-12">
+                 {{ form.first_name.label_tag }} <span class="text-danger">*</span>
+                    {{ form.first_name }}
+              </div>
+              <div class="col-12">
+                 {{ form.last_name.label_tag }} <span class="text-danger">*</span>
+                  {{ form.last_name }}
+              </div>
+              <div class="col-12">
+                {{ form.username.label_tag }}<span class="text-danger">*</span>
+                  {{ form.username }}
+              </div>
+              <div class="col-12">
+                {{ form.email.label_tag }}<span class="text-danger">*</span>
+                    {{ form.email }}
+              </div>
+              <div class="col-12">
+                {{ form.password1.label_tag }} <span class="text-danger">*</span>
+                  {{ form.password1 }}
+              </div>
+               <div class="col-12">
+                {{ form.password2.label_tag }} <span class="text-danger">*</span>
+                   {{ form.password2 }}
+              </div>
+              <div class="col-12">
+              </div>
+               <h6 class="mb-2 pb-1">Choose your role: </h6>
+                    {{ form.choose_role }}
+                  </div>
+              <div class="col-12">
+                <div class="d-grid">
+                  <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+                </div>
+              </div>
+          </form>
+          <div class="row">
+            <div class="col-12">
+              <hr class="mt-5 mb-4 border-secondary-subtle">
+              <div class="col-12">
+                <p class="m-0 text-secondary text-center">Already have an account? <a href= '{% url 'login' %}' class="link-primary text-decoration-none">Login</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
