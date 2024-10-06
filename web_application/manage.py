@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
-import os
 import sys
-import dotenv
+#import dotenv
 import os
-from pathlib import Path
+#from pathlib import Path
 
 
 def main():
 
-    BASE_DIR = Path(__file__).resolve().parent.parent
+    #BASE_DIR = Path(__file__).resolve().parent.parent
+    #dotenv.read_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
 
-    dotenv_path = BASE_DIR / '.env'
-    dotenv.read_dotenv(dotenv_path)
+    #dotenv_path = BASE_DIR / '.env'
+    #dotenv.read_dotenv()
 
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'freelance_app.settings')

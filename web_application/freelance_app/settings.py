@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("POSTGRESQL_USER:", os.getenv('POSTGRESQL_USER'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,16 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my app
-    'user',
-    'admin_profile',
-    'freelancer_profile',
-    'client_profile',
-    'project',
-    'proposal',
-    'agreement',
-    'chat',
+    'apps.admin_profile',
+    'apps.freelancer_profile',
+    'apps.client_profile',
+    'apps.project',
+    'apps.proposal',
+    'apps.agreement',
+    'apps.chat',
     'freelance_app',
-
 ]
 
 MIDDLEWARE = [
@@ -90,11 +87,11 @@ WSGI_APPLICATION = 'freelance_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRESQL_DATABASE'),
-        'USER': os.environ.get('POSTGRESQL_USER'),
-        'PASSWORD': os.environ.get('POSTGRESQL_PASSWORD'),
-        'HOST': os.environ.get('POSTGRESQL_HOST'),
-        'PORT': os.environ.get('POSTGRESQL_PORT'),
+        'NAME': os.environ.get('POSTGRES_DATABASE'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
 
