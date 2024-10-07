@@ -17,10 +17,10 @@ RUN apk add --no-cache  \
     musl-dev  \
     postgresql-dev \
     postgresql-client \
-    curl
-#    jpeg-dev \
-#    zlib-dev \
-#    libjpeg
+    curl \
+    jpeg-dev \
+    zlib-dev \
+    libjpeg
 
 RUN mkdir /web
 WORKDIR /web
