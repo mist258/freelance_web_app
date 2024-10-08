@@ -12,6 +12,5 @@ class ClientProfile(BaseModel):
         db_table = 'client_profile'
         verbose_name = 'Client Profile'
         verbose_name_plural = 'Client Profiles'
-        ordering = ['id'
-                    ]
+        ordering = ['id']
 
