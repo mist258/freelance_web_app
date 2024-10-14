@@ -21,6 +21,8 @@
               <div class="col-12">
                  {{ form.first_name.label_tag }} <span class="text-danger">*</span>
                     {{ form.first_name }}
+                    {{ form.first_name.errors }}
+
               </div>
               <div class="col-12">
                  {{ form.last_name.label_tag }} <span class="text-danger">*</span>
@@ -33,7 +35,7 @@
               <div class="col-12">
                 {{ form.email.label_tag }}<span class="text-danger">*</span>
                     {{ form.email }}
-              </div>from django.conf.global_settings import MEDIA_URL, STATIC_ROOT, MEDIA_ROOT
+              </div>
 
               <div class="col-12">
                 {{ form.password1.label_tag }} <span class="text-danger">*</span>
@@ -46,7 +48,7 @@
               <div class="col-12">
               </div>
                <h6 class="mb-2 pb-1">Choose your role: </h6>
-                    {{ form.choose_role }}
+                    {{ form.role }}
             </div>
               <div class="col-12">
                 <div class="d-grid">

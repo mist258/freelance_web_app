@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 
 CustomUserModel = get_user_model()
@@ -16,7 +17,7 @@ class RegisterUserForm(UserCreationForm):
                   'email',
                   'password1',
                   'password2',
-                  'choose_role')
+                  'role')
 
     def __init__(self, *args, **kwargs):
         super(RegisterUserForm, self).__init__(*args, **kwargs)
@@ -41,18 +42,18 @@ class RegisterUserForm(UserCreationForm):
                                                   'autocomplete': 'email',
                                                   })
         self.fields['password1'].widget.attrs.update({'class': 'form-control',
-                                                      'input_type': 'password',
+                                                      'type': 'password',
                                                       'required': 'True',
                                                       'id': 'password',
                                                       })
         self.fields['password2'].widget.attrs.update({'class': 'form-control',
-                                                      'input_type': 'password',
+                                                      'type': 'password',
                                                       'required': 'True',
                                                       'id': 'password',
                                                       })
-        self.fields['choose_role'].widget.attrs.update({'class': 'form-control',
+        self.fields['role'].widget.attrs.update({'class': 'form-control',
                                                         'required': 'True',
-                                                        'id': 'choose_role',
+                                                        'id': 'role',
                                                         })
 
     # method will be called when method 'is_valid' is calling
@@ -83,7 +84,7 @@ class LoginUserForm(AuthenticationForm):
                                                   })
 
         self.fields['password'].widget.attrs.update({'class': 'form-control',
-                                                     'input_type': 'password',
+                                                     'type': 'password',
                                                      'required': 'True',
                                                      'id': 'password',
                                                      })

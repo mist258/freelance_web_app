@@ -1,13 +1,14 @@
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
 from django.utils.translation import gettext_lazy as _
+from .forms import RegisterUserForm
 
 def register_login_user(request):
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
 
         if form.is_valid():
 
@@ -20,7 +21,7 @@ def register_login_user(request):
             login(request, user)
             return render(request, 'register/register_tmpl.html', {'form': form})
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
         return render(request, 'register/register_tmpl.html', {'form': form})
 
 
